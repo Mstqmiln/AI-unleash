@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Unleash</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(120deg, #1a1a2e, #16213e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #00d9ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00d9ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: url('https://source.unsplash.com/1600x900/?futuristic,technology') no-repeat center center/cover;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin: 20px 0;
+      animation: glow 2s infinite alternate;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .hero button {
+      padding: 10px 20px;
+      background-color: #00d9ff;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #00a9cc;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00a9cc, 0 0 30px #00a9cc, 0 0 40px #00a9cc;
+      }
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column; /* Changed to vertical alignment */
+      align-items: center;
+      gap: 30px; /* Increased gap between features */
+    }
+
+    .feature {
+      width: 80%; /* Made features wider */
+      max-width: 800px; /* Added max-width */
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: scale(1.05);
+    }
+
+    .feature h3 {
+      color: #00d9ff;
+      margin-bottom: 15px;
+      font-size: 24px; /* Increased header size */
+    }
+
+    .feature p {
+      font-size: 18px; /* Increased paragraph size */
+    }
+
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #00d9ff, transparent);
+      margin: 40px 0;
+    }
+
+    .innovation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .innovation-card {
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .innovation-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,217,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header style="
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: linear-gradient(to right, rgba(26,26,46,0.9), rgba(22,33,62,0.9));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+">
+  <div style="display: flex; align-items: center;">
+    <img src="images/ai.jpg" alt="AI Unleash Logo" style="
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      border: 2px solid #00d9ff;
+    ">
+    <h1 style="
+      font-size: 24px;
+      color: #00d9ff;
+      margin: 0;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    ">AI Unleash</h1>
+  </div>
+  
+  <nav style="
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  ">
+    <a href="#home" style="
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+    " onmouseover="this.style.color='#00d9ff'" onmouseout="this.style.color='#ffffff'">
+      Home
+      <span style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #00d9ff;
+        transition: width 0.3s ease;
+      " onmouseover="this.style.width='100%'" onmouseout="this.style.width='0'"></span>
+    </a>
+    <a href="#features" style="
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+    " onmouseover="this.style.color='#00d9ff'" onmouseout="this.style.color='#ffffff'">
+      Features
+      <span style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #00d9ff;
+        transition: width 0.3s ease;
+      " onmouseover="this.style.width='100%'" onmouseout="this.style.width='0'"></span>
+    </a>
+    <a href="#innovations" style="
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+    " onmouseover="this.style.color='#00d9ff'" onmouseout="this.style.color='#ffffff'">
+      Innovation
+      <span style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #00d9ff;
+        transition: width 0.3s ease;
+      " onmouseover="this.style.width='100%'" onmouseout="this.style.width='0'"></span>
+    </a>
+    <a href="#community" style="
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+    " onmouseover="this.style.color='#00d9ff'" onmouseout="this.style.color='#ffffff'">
+      community
+      <span style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #00d9ff;
+        transition: width 0.3s ease;
+      " onmouseover="this.style.width='100%'" onmouseout="this.style.width='0'"></span>
+    </a>
+    <a href="#resources" style="
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+    " onmouseover="this.style.color='#00d9ff'" onmouseout="this.style.color='#ffffff'">
+      Resources
+      <span style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #00d9ff;
+        transition: width 0.3s ease;
+      " onmouseover="this.style.width='100%'" onmouseout="this.style.width='0'"></span>
+    </a>
+    <a href="#about" style="
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+    " onmouseover="this.style.color='#00d9ff'" onmouseout="this.style.color='#ffffff'">
+      About
+      <span style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #00d9ff;
+        transition: width 0.3s ease;
+      " onmouseover="this.style.width='100%'" onmouseout="this.style.width='0'"></span>
+    </a>
+  </nav>
+</header>
+
+  <div id="home" class="hero">
+    <h2>Unleashing the Power of AI</h2>
+    <p>Discover the latest in artificial intelligence, from groundbreaking innovations to practical applications shaping the future.</p>
+    <button onclick="alert('Welcome to the future!')">Explore Now</button>
+  </div>
+
+<section>
+  <h2 style="text-align: center; color: #00d9ff; margin-bottom: 40px;">AI Features</h2>
+  <div id="features" class="features">
+    <div class="feature">
+      <h3>AI in Autonomous Driving</h3>
+      <p>Tesla is at the forefront of artificial intelligence in autonomous vehicle technology. Their advanced neural networks and machine learning algorithms continuously improve self-driving capabilities, processing massive amounts of real-world driving data to enhance vehicle intelligence and safety.</p>
+      <img src="images/kete.jpg" alt="Unique electric vehicle design" style="max-width: 100%; height: 400px; margin-top: 20px;">
+    </div>
+    <div class="feature">
+      <h3>Optimus: Tesla's Humanoid Robot</h3>
+      <p>Tesla is developing Optimus, a groundbreaking humanoid robot designed to perform repetitive or dangerous tasks. Leveraging their expertise in AI and robotics, the Optimus project aims to create a versatile, programmable robot that can assist in various industrial and personal environments, potentially revolutionizing workforce automation.</p>
+      <img src="images/robot.jpg" alt="Futuristic robotic figure" style="max-width: 100%; height: 400px; margin-top: 20px;">
+    </div>
+    <div class="feature">
+      <h3>Future of AI Integration</h3>
+      <p>Tesla continues to push the boundaries of artificial intelligence, integrating advanced AI technologies across their product ecosystem. From vehicle autonomy to robotic systems, Tesla is committed to developing intelligent technologies that can learn, adapt, and improve over time, showcasing the transformative potential of AI in modern technology.</p>
+      <img src="images/tesla.jpg" alt="Tesla retail location" style="max-width: 100%; height: 400px; margin-top: 20px;">
+    </div>
+  </div>
+</section>
+
+<section id="innovations" style="background: rgba(0,0,0,0.3); padding: 50px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; color: #00d9ff; margin-bottom: 40px;">AI Innovation Landscape</h2>
+    <div class="innovation-grid">
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Machine Learning</h3>
+        <p>Advanced algorithms that enable systems to learn and improve from experience without being explicitly programmed.</p>
+      </div>
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Neural Networks</h3>
+        <p>Computational models inspired by human brain structure, capable of recognizing complex patterns and making intelligent decisions.</p>
+      </div>
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Deep Learning</h3>
+        <p>Sophisticated AI technique that uses multiple layers of neural networks to analyze and interpret complex data sets.</p>
+      </div>
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Natural Language Processing</h3>
+        <p>Technology enabling computers to understand, interpret, and generate human language in meaningful ways.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community" style="padding: 50px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; color: #00d9ff; margin-bottom: 40px;">Join Our AI Community</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="width: 50%; padding-right: 30px;">
+        <p style="color: #ffffff; line-height: 1.6;">
+          Connect with AI enthusiasts, researchers, and innovators from around the globe. Share insights, collaborate on groundbreaking projects, and stay at the forefront of technological innovation.
+        </p>
+        <button style="
+          margin-top: 20px;
+          padding: 12px 25px;
+          background-color: #00d9ff;
+          color: #000;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        ">
+          Join Community
+        </button>
+      </div>
+      <div style="width: 50%;">
+        <div style="
+          background: rgba(0,217,255,0.1);
+          border-radius: 10px;
+          padding: 20px;
+          text-align: center;
+        ">
+          <h3 style="color: #00d9ff;">Upcoming Events</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <li style="margin-bottom: 10px;">AI Innovation Summit - July 2026</li>
+            <li style="margin-bottom: 10px;">Machine Learning Workshop - August 2026</li>
+            <li>Global Tech Conference - September 2026</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resources" style="background: rgba(0,0,0,0.3); padding: 50px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; color: #00d9ff; margin-bottom: 40px;">AI Learning Resources</h2>
+    <div class="innovation-grid">
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Online Courses</h3>
+        <p>Curated selection of AI and machine learning courses from top global institutions.</p>
+      </div>
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Research Papers</h3>
+        <p>Latest research publications and groundbreaking studies in artificial intelligence.</p>
+      </div>
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Tutorials</h3>
+        <p>Step-by-step guides and practical tutorials for AI development and implementation.</p>
+      </div>
+      <div class="innovation-card">
+        <h3 style="color: #00d9ff;">Tools & Frameworks</h3>
+        <p>Comprehensive directory of AI development tools and machine learning frameworks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="about">
+    <h2>About AI Unleash</h2>
+    <p>Our mission is to democratize AI knowledge and inspire the next generation of technological innovators.</p>
+  </section>
+
+  <section id="team-members" style="
+  background: rgba(0,0,0,0.3);
+  padding: 50px 0;
+  text-align: center;
+">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="color: #00d9ff; margin-bottom: 40px;">Our Team</h2>
+    <div style="
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    ">
+      <div style="
+        background: rgba(0,0,0,0.6);
+        border-radius: 10px;
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="images/naqib.jpg" style="
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #00d9ff;
+        ">
+        <h3 style="color: #00d9ff; margin-top: 15px;">Ahmad Naqib Bin Sofian</h3>
+        <p style="color: #ffffff; font-weight: bold;">Project Leader</p>
+        <p style="color: #cccccc; font-size: 12px;">Student ID: 2023214202</p>
+      </div>
+      
+      <div style="
+        background: rgba(0,0,0,0.6);
+        border-radius: 10px;
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="images/mileng.jpg" style="
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #00d9ff;
+        ">
+        <h3 style="color: #00d9ff; margin-top: 15px;">Aiman Mustaqim Amilin Bin Zainuddin</h3>
+        <p style="color: #ffffff; font-weight: bold;">IT Specialist</p>
+        <p style="color: #cccccc; font-size: 12px;">Student ID: 2023406952</p>
+      </div>
+      
+      <div style="
+        background: rgba(0,0,0,0.6);
+        border-radius: 10px;
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="images/nabel.jpg" style="
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #00d9ff;
+        ">
+        <h3 style="color: #00d9ff; margin-top: 15px;">Mohd Nabil Hazeq Bin Shalahudin</h3>
+        <p style="color: #ffffff; font-weight: bold;">Marketing Specialist</p>
+        <p style="color: #cccccc; font-size: 12px;">Student ID: 2023884722</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer style="text-align:center; padding: 20px; background: rgba(0,0,0,0.8);">
+    <p>&copy; 2024 AI Unleash. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+   // Smooth scrolling for navigation links
+   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    console.log("Welcome to AI Unleash! Let's explore the future of technology together.");
+  </script>
+</body>
+</html>
